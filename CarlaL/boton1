@@ -1,0 +1,64 @@
+
+int pulsos =0;
+int duracion =100;
+//500 pulsos = 1 duración
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(10, OUTPUT);
+pinMode(12, OUTPUT);
+pinMode(11, OUTPUT);
+pinMode(9, OUTPUT);
+pinMode(8, OUTPUT);
+pinMode(3, INPUT);
+}
+
+void loop() {
+int Boton = digitalRead(3); 
+Serial.println(pulsos);
+if(Boton==1) {
+  pulsos++;
+}
+
+
+
+  // put your main code here, to run repeatedly:
+ if(pulsos>duracion){
+  digitalWrite(8, HIGH);
+ } if(pulsos>duracion*2){
+  digitalWrite(9, HIGH);
+ }
+   if(pulsos>duracion*3 ){
+  digitalWrite(10, HIGH);
+ } if(pulsos>duracion*4){
+  digitalWrite(11, HIGH);
+   } if(pulsos>duracion*5){
+  digitalWrite(12, HIGH);
+   }
+   if(pulsos>duracion*6 ){
+  digitalWrite(8, LOW);
+ } if(pulsos>duracion*7){
+  digitalWrite(9, LOW);
+     } if(pulsos>duracion*8){
+  digitalWrite(10, LOW);
+     }
+   if(pulsos>duracion*9 ){
+  digitalWrite(11, LOW);
+ } if(pulsos>duracion*10){
+  digitalWrite(12, LOW);
+  } if(pulsos>duracion*11){
+  digitalWrite(8, HIGH);
+  digitalWrite(9, HIGH);
+  digitalWrite(10, HIGH);
+  digitalWrite(11, HIGH);
+  digitalWrite(12, HIGH);
+  } if(pulsos>duracion*12){
+  digitalWrite(8, LOW);
+  digitalWrite(9, LOW);
+  digitalWrite(10, LOW);
+  digitalWrite(11, LOW);
+  digitalWrite(12, LOW);
+  pulsos = 0;
+  } 
+     }
