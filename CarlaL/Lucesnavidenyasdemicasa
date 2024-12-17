@@ -1,0 +1,66 @@
+ int ledBlanco1=2;
+ int ledAmarillo1=3;
+ int ledRojo1=4;
+ int ledVerde1=5;
+ int ledAzul1=6;
+ int ledBlanco2=7;
+ int ledAmarillo2=8;
+ int ledRojo2=9;
+ int ledVerde2=10;
+ int ledAzul2=11;
+ int boton=12;
+ int duracionLed=500;      
+        
+void setup() {
+pinMode(ledBlanco1,OUTPUT);
+pinMode(ledAmarillo1,OUTPUT);
+pinMode(ledRojo1,OUTPUT);
+pinMode(ledVerde1,OUTPUT); 
+pinMode(ledAzul1,OUTPUT); 
+pinMode(ledBlanco2,OUTPUT);
+pinMode(ledAmarillo2,OUTPUT);
+pinMode(ledRojo2,OUTPUT);
+pinMode(ledVerde2,OUTPUT);
+pinMode(ledAzul2,OUTPUT);
+pinMode(boton,INPUT);
+
+}
+void lucesNavidenyasDeMiCasa(int duracionLed){
+delay(duracionLed);
+digitalWrite(ledBlanco1,HIGH);
+delay(duracionLed);
+digitalWrite(ledBlanco1,LOW);
+digitalWrite(ledAmarillo1,HIGH);
+delay(duracionLed);
+digitalWrite(ledAmarillo1,LOW);
+digitalWrite(ledRojo1,HIGH);
+delay(duracionLed);
+digitalWrite(ledRojo1,LOW);
+digitalWrite(ledVerde1,HIGH);
+delay(duracionLed);
+digitalWrite(ledVerde1,LOW);
+digitalWrite(ledAzul1,HIGH);
+delay(duracionLed);
+digitalWrite(ledAzul1,LOW);
+digitalWrite(ledBlanco2,HIGH);
+delay(duracionLed);
+digitalWrite(ledBlanco2,LOW);
+digitalWrite(ledAmarillo2,HIGH);
+delay(duracionLed);
+digitalWrite(ledAmarillo2,LOW);
+digitalWrite(ledRojo2,HIGH);
+delay(duracionLed);
+digitalWrite(ledRojo2,LOW);
+digitalWrite(ledVerde2,HIGH);
+delay(duracionLed);
+digitalWrite(ledVerde2,LOW);
+digitalWrite(ledAzul2,HIGH);
+delay(duracionLed);
+digitalWrite(ledAzul2,LOW);
+}
+
+void loop() {
+ if (digitalRead(boton)){
+ lucesNavidenyasDeMiCasa(duracionLed);
+}
+}
