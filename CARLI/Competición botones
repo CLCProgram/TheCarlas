@@ -1,0 +1,149 @@
+//int duracionLed = 5000 ;
+int P1Rojo=8;
+int P1Amarillo=9;
+int P1Verde=10;
+int P2Rojo=11;
+int P2Verde=12;
+int P2Amarillo=13;
+int botonp1=3;
+int botonp2=2;
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(P1Rojo, OUTPUT);
+  pinMode(P1Amarillo, OUTPUT);
+  pinMode(P1Verde, OUTPUT);
+  pinMode(P2Rojo, OUTPUT);
+  pinMode(P2Verde, OUTPUT);
+  pinMode(P2Amarillo, OUTPUT);
+  pinMode(botonp1, INPUT);
+  pinMode(botonp2, INPUT);
+}
+
+void cicloP1(int duracionLed)
+
+{
+  int pulsos =0;
+int duracion =100;
+}
+int Boton = digitalRead(3); 
+Serial.println(pulsos);
+if(Boton==1) {
+  pulsos++;
+}{
+  delay(duracionLed);
+  digitalWrite(P1Verde, LOW);
+  digitalWrite(P1Amarillo, LOW);
+  digitalWrite(P1Rojo, LOW);
+  digitalWrite(P2Rojo, LOW);
+  digitalWrite(P2Amarillo, LOW);
+  digitalWrite(P2Verde, LOW);
+
+  if(pulsos>duracion){
+  digitalWrite(8, HIGH);
+ } if(pulsos>duracion*2){
+  digitalWrite(9, HIGH);
+ }
+   if(pulsos>duracion*3 ){
+  digitalWrite(10, HIGH);
+ } 
+pulsos=0
+
+void cicloP2
+
+
+(int duracionLed)
+
+{
+  int pulsos =0;
+int duracion =100;
+}
+int Boton = digitalRead(3); 
+Serial.println(pulsos);
+if(Boton==1) {
+  pulsos++;
+}{
+  delay(duracionLed);
+  digitalWrite(P1Verde, LOW);
+  digitalWrite(P1Amarillo, LOW);
+  digitalWrite(P1Rojo, LOW);
+  digitalWrite(P2Rojo, LOW);
+  digitalWrite(P2Amarillo, LOW);
+  digitalWrite(P2Verde, LOW);
+
+  if(pulsos>duracion){
+  digitalWrite(11, HIGH);
+ } if(pulsos>duracion*2){
+  digitalWrite(13, HIGH);
+ }
+   if(pulsos>duracion*3 ){
+  digitalWrite(12, HIGH);
+ } 
+
+pulsos=0
+
+for (int i =0 ; i< 4; i = i+1) {
+  digitalWrite(P2Verde, LOW);
+  delay(duracionLed/10);
+  digitalWrite(P2Verde, HIGH);
+  delay(duracionLed/10);
+ }
+  digitalWrite(P2Rojo, HIGH);
+  digitalWrite(P2Verde, LOW);
+  delay(duracionLed/10);
+  digitalWrite(P1Verde, HIGH);
+
+    digitalWrite(P1Rojo, LOW);
+ 
+}
+
+void loop() {
+
+ digitalRead(botonp1){
+ cicloP1(799);
+}
+
+if (digitalRead(botonp2)){
+  cicloP2(799)
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int pulsos =0;
+int duracion =100;
+//500 pulsos = 1 duración
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(10, OUTPUT);
+pinMode(12, OUTPUT);
+pinMode(11, OUTPUT);
+pinMode(9, OUTPUT);
+pinMode(8, OUTPUT);
+pinMode(3, INPUT);
+}
+
+void loop() {
+int Boton = digitalRead(3); 
+Serial.println(pulsos);
+if(Boton==1) {
+  pulsos++;
+}
+
+
