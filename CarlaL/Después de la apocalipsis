@@ -1,0 +1,52 @@
+//int duracionLed = 5000 ;
+int cocheRojo=8;
+int cocheAmarillo=9;
+int cocheVerde=10;
+int peatonRojo=11;
+int peatonVerde=12;
+int boton=3;
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(cocheRojo, OUTPUT);
+  pinMode(cocheAmarillo, OUTPUT);
+  pinMode(cocheVerde, OUTPUT);
+  pinMode(peatonRojo, OUTPUT);
+  pinMode(peatonVerde, OUTPUT);
+  pinMode(boton, INPUT);
+}
+
+void cicloSemaforo(int duracionLed) {
+  delay(duracionLed);
+  digitalWrite(cocheVerde, LOW);
+  digitalWrite(cocheAmarillo, HIGH);
+  delay(duracionLed);
+  digitalWrite(cocheAmarillo, LOW);
+  digitalWrite(peatonRojo, LOW);
+  digitalWrite(cocheRojo, HIGH);
+  digitalWrite(peatonVerde, HIGH);
+  delay(duracionLed);
+// parpadeo verde 1
+
+ for (int i =0 ; i< 4; i = i+1) {
+  digitalWrite(peatonVerde, LOW);
+  delay(duracionLed/10);
+  digitalWrite(peatonVerde, HIGH);
+  delay(duracionLed/10);
+ }
+  digitalWrite(peatonRojo, HIGH);
+  digitalWrite(peatonVerde, LOW);
+  delay(duracionLed/10);
+  digitalWrite(cocheVerde, HIGH);
+
+    digitalWrite(cocheRojo, LOW);
+ 
+}
+
+void loop() {
+  digitalWrite(cocheVerde, HIGH);
+  digitalWrite(peatonRojo, HIGH);
+ if (digitalRead(boton)){
+ cicloSemaforo(799);
+}
+}
