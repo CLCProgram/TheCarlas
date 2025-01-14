@@ -1,0 +1,67 @@
+int P1Rojo=8;
+int P1Amarillo=9;
+int P1Verde=10;
+int P2Rojo=11;
+int P2Verde=12;
+int P2Amarillo=13;
+int botonp1=3;
+int botonp2=2;
+int pulsosPlayer1=0;
+int pulsosPlayer2=0;
+int tempusFugit=500;
+void setup() {
+  pinMode(P1Rojo, OUTPUT);
+  pinMode(P1Amarillo, OUTPUT);
+  pinMode(P1Verde, OUTPUT);
+  pinMode(P2Rojo, OUTPUT);
+  pinMode(P2Verde, OUTPUT);
+  pinMode(P2Amarillo, OUTPUT);
+  pinMode(botonp1, INPUT);
+  pinMode(botonp2, INPUT);
+  Serial.begin(9600);
+}
+
+void leerBotonPlayer1() {
+ int Boton1 = digitalRead(2);
+ Serial.println(pulsosPlayer1);
+ if(Boton1==1) {
+  pulsosPlayer1++;
+ }
+
+
+
+}
+
+void leerBotonPlayer2() {
+ int Boton2 = digitalRead(3);
+ Serial.println(pulsosPlayer2);
+ if(Boton2==1) {
+  pulsosPlayer2++;
+ }
+
+
+}
+
+void player1(int pulsosPlayer1){
+  leerBotonPlayer1();
+  if (pulsosPlayer1 > 100){
+    digitalWrite(8, HIGH);
+    delay(tempusFugit);
+  } 
+  if (pulsosPlayer1 > 150){
+    digitalWrite(9, HIGH);
+    delay(tempusFugit);
+    } 
+  if (pulsosPlayer1 > 200){
+     digitalWrite(10, HIGH);
+     delay(tempusFugit);
+  }
+     
+}
+
+void loop() {
+  if (digitalRead(2)){
+    player1(pulsosPlayer1);
+  }
+}
+
