@@ -1,0 +1,30 @@
+int boton1=3;
+int boton2=2;
+int pulsos1=0;
+int pulsos2=0;
+
+void setup() {
+Serial.begin(9600);
+Serial.print(boton1);
+pinMode(boton1, INPUT);
+pinMode(boton2, INPUT);
+}
+
+void leerBoton1() {
+ if (digitalRead(3)){
+  pulsos1 ++;
+  }
+  Serial.println(pulsos1);
+}
+
+void leerBoton2() {
+ if (digitalRead(2)){
+  pulsos2 ++;
+  }
+  Serial.println(pulsos2);
+}
+
+void loop () {
+  leerBoton1();
+  leerBoton2();
+}
