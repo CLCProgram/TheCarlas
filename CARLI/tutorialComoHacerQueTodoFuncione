@@ -1,0 +1,22 @@
+int EstadoActual=0;
+int EstadoAnterior=0;
+int boton=2;
+int jijija=53;
+
+void setup() {
+  pinMode(boton,INPUT);
+  Serial.begin(9600);
+}
+
+void leerBoton(){
+EstadoActual=digitalRead(boton);
+if(EstadoActual==HIGH&& EstadoActual!=EstadoAnterior){
+Serial.println("jijija");
+}
+EstadoAnterior = EstadoActual;  
+}
+
+
+void loop (){
+  
+}
