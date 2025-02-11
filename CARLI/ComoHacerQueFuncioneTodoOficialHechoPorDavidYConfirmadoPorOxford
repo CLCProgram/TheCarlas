@@ -1,0 +1,16 @@
+int boton1 = 2;
+int estadoActual1 = 0;
+int estadoAnterior1 = 0;
+
+void setup() {
+  pinMode(boton1, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+ estadoActual1 = digitalRead(boton1);
+ if (estadoActual1 == HIGH && estadoActual1 != estadoAnterior1) {
+  Serial.println("Hemos pulsado el botón");
+ }
+ estadoAnterior1 = estadoActual1;
+}
