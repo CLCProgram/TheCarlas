@@ -1,0 +1,85 @@
+int boton1 = 2;
+int estadoActual1 = 0;
+int estadoAnterior1 = 0;
+int boton2 = 3;
+int estadoActual2 = 0;
+int estadoAnterior2 = 0;
+int boton3 = 4;
+int estadoActual3 = 0;
+int estadoAnterior3 = 0;
+int boton4 = 5;
+int estadoActual4 = 0;
+int estadoAnterior4 = 0;
+int boton5 = 6;
+int estadoActual5 = 0;
+int estadoAnterior5 = 0;
+int boton6 = 7;
+int estadoActual6 = 0;
+int estadoAnterior6 = 0;
+int boton7 = 8;
+int estadoActual7 = 0;
+int estadoAnterior7 = 0;
+
+void setup() {
+  pinMode(boton1, INPUT);
+  Serial.begin(9600);
+  pinMode(boton2, INPUT);
+  Serial.begin(9600);
+  pinMode(boton3, INPUT);
+  Serial.begin(9600);
+  pinMode(boton4, INPUT);
+  Serial.begin(9600);
+  pinMode(boton5, INPUT);
+  Serial.begin(9600);
+  pinMode(boton6, INPUT);
+  Serial.begin(9600);
+  pinMode(boton7, INPUT);
+  Serial.begin(9600);
+  }
+
+void loop() {
+ estadoActual1 = digitalRead(boton1);
+ if (estadoActual1 == HIGH && estadoActual1 != estadoAnterior1) {
+  Serial.println("Hemos pulsado el botón");
+ }
+ estadoAnterior1 = estadoActual1;
+
+  estadoActual2 = digitalRead(boton2);
+ if (estadoActual2 == HIGH && estadoActual2 != estadoAnterior2) {
+  Serial.println("Hemos pulsado el botón2");
+ }
+ estadoAnterior2 = estadoActual2;
+
+  estadoActual3 = digitalRead(boton3);
+ if (estadoActual3 == HIGH && estadoActual3 != estadoAnterior3) {
+  Serial.println("Hemos pulsado el botón3");
+ }
+ estadoAnterior3 = estadoActual3;
+
+   estadoActual4 = digitalRead(boton4);
+ if (estadoActual4 == HIGH && estadoActual4 != estadoAnterior4) {
+  Serial.println("Hemos pulsado el botón4");
+ }
+ estadoAnterior4 = estadoActual4;
+
+   estadoActual5 = digitalRead(boton5);
+ if (estadoActual5 == HIGH && estadoActual5 != estadoAnterior5) {
+  Serial.println("Hemos pulsado el botón5");
+ }
+ estadoAnterior5 = estadoActual5;
+
+
+    estadoActual6 = digitalRead(boton6);
+ if (estadoActual6 == HIGH && estadoActual6 != estadoAnterior6) {
+  Serial.println("Hemos pulsado el botón6");
+ }
+ estadoAnterior6 = estadoActual6;
+
+
+ estadoActual7 = digitalRead(boton7);
+ if (estadoActual7 == HIGH && estadoActual7 != estadoAnterior7) {
+  Serial.println("Hemos pulsado el botón7");
+ }
+ estadoAnterior7 = estadoActual7;
+
+}
