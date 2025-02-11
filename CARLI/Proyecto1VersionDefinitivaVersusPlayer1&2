@@ -1,0 +1,72 @@
+int boton1 = 2;
+int estadoActual1 = 0;
+int estadoAnterior1 = 0;
+int puntos1 = 0;
+int boton2 = 3;
+int estadoActual2 = 0;
+int estadoAnterior2 = 0;
+int puntos2 = 0;
+int P1Rojo=8;
+int P1Amarillo=9;
+int P1Verde=10;
+int P2Rojo=11;
+int P2Verde=12;
+int P2Amarillo=13;
+int tempusFugit=500;
+
+
+void setup() {
+  pinMode(boton1, INPUT);
+  Serial.begin(9600);
+    pinMode(boton2, INPUT);
+  Serial.begin(9600);
+  pinMode(P1Rojo, OUTPUT);
+  pinMode(P1Amarillo, OUTPUT);
+  pinMode(P1Verde, OUTPUT);
+  pinMode(P2Rojo, OUTPUT);
+  pinMode(P2Verde, OUTPUT);
+  pinMode(P2Amarillo, OUTPUT);
+}
+
+void loop() {
+ estadoActual1 = digitalRead(boton1);
+ if (estadoActual1 == HIGH && estadoActual1 != estadoAnterior1) {
+  puntos1 = puntos1 +1;
+  Serial.println(puntos1);
+ }
+ estadoAnterior1 = estadoActual1;
+
+
+  estadoActual2 = digitalRead(boton2);
+ if (estadoActual2 == HIGH && estadoActual2 != estadoAnterior2) {
+  puntos2 = puntos2 +1;
+  Serial.println(puntos2);
+ }
+ estadoAnterior2 = estadoActual2;
+
+if (puntos2 == 50) {
+ digitalWrite(P1Rojo, HIGH); 
+}
+
+if (puntos1 == 100) {
+ digitalWrite(P1Amarillo, HIGH); 
+}
+
+if (puntos1 == 150) {
+ digitalWrite(P1Verde, HIGH); 
+}
+
+if (puntos2 == 50) {
+ digitalWrite(P2Rojo, HIGH); 
+}
+
+if (puntos2 == 100) {
+ digitalWrite(P2Amarillo, HIGH); 
+}
+
+if (puntos2 == 150) {
+ digitalWrite(P2Verde, HIGH); 
+}
+
+
+}
