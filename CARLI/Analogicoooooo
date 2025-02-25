@@ -1,0 +1,14 @@
+int led = 6;
+int duracionLed = 1000;
+void setup() {
+pinMode(led, OUTPUT);
+Serial.begin(9600);
+}
+
+void loop() {
+ for(int intensidad = 0; intensidad <1024; intensidad ++) {
+  analogWrite(led, intensidad);
+  delay(duracionLed);
+  Serial.println(intensidad);
+ }
+}
