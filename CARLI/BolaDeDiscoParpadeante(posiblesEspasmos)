@@ -1,0 +1,70 @@
+#include <FastLED.h>
+
+// How many leds in your strip?
+#define NUM_LEDS 179
+
+// For led chips like WS2812, which have a data line, ground, and power, you just
+// need to define DATA_PIN.  For led chipsets that are SPI based (four wires - data, clock,
+// ground, and power), like the LPD8806 define both DATA_PIN and CLOCK_PIN
+// Clock pin only needed for SPI based chipsets when not using hardware SPI
+#define DATA_PIN 3
+
+// Define the array of leds
+CRGB leds[NUM_LEDS];
+
+void setup() { 
+    // Uncomment/edit one of the following lines for your leds arrangement.
+    // ## Clockless types ##
+    FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);  // GRB ordering is assumed
+}
+
+void loop() { 
+
+  for(int numeroLed = 0; numeroLed <180; numeroLed ++) {
+    leds[numeroLed] = CRGB::Red;
+  }
+  FastLED.show();
+  delay(500);
+  // Now turn the LED off, then pause
+  
+  for(int numeroLed = 0; numeroLed <89; numeroLed ++) {
+    leds[numeroLed] = CRGB::Black;
+  }
+  FastLED.show();
+  delay(500);
+  for(int numeroLed = 90; numeroLed <180; numeroLed ++) {
+    leds[numeroLed] = CRGB::Yellow;
+  }
+  FastLED.show();
+  delay(500);
+  for(int numeroLed = 0; numeroLed <89; numeroLed ++) {
+    leds[numeroLed] = CRGB::Green;
+  }
+  FastLED.show();
+  delay(500);
+  for(int numeroLed = 0; numeroLed <180; numeroLed ++) {
+    leds[numeroLed] = CRGB::Blue;
+  }
+  FastLED.show();
+  delay(500);
+  for(int numeroLed = 0; numeroLed <46; numeroLed ++) {
+    leds[numeroLed] = CRGB::Purple;
+  }
+  FastLED.show();
+  delay(500);
+  for(int numeroLed = 46; numeroLed <90; numeroLed ++) {
+    leds[numeroLed] = CRGB::Pink;
+  }
+  FastLED.show();
+  delay(500);
+  for(int numeroLed = 90; numeroLed <136; numeroLed ++) {
+    leds[numeroLed] = CRGB::White;
+  }
+  FastLED.show();
+  delay(500);
+  for(int numeroLed = 136; numeroLed <180; numeroLed ++) {
+    leds[numeroLed] = CRGB::Orange;
+  }
+  FastLED.show();
+  delay(500);
+}
