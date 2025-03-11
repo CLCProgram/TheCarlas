@@ -1,0 +1,40 @@
+    #include <FastLED.h>
+#define NUM_LEDS 179
+#define DATA_PIN 3
+CRGB leds[NUM_LEDS];
+
+void setup() { 
+    FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);  
+}
+void loop() {
+  for(int ledAIluminar = 0; ledAIluminar < NUM_LEDS ; ledAIluminar ++){
+    leds[ledAIluminar] = CRGB::Red;
+      FastLED.show();
+      delay(5);
+  }
+  for(int numeroLeds = 0; numeroLeds <NUM_LEDS+1; numeroLeds ++) {
+    leds[numeroLeds%NUM_LEDS] = CRGB::Black;
+    FastLED.show();
+    delay(20);
+    if (numeroLeds>0){
+      leds[(numeroLeds-1)%NUM_LEDS] = CRGB:: Blue;
+    }
+  }
+  for(int numeroLeds = 0; numeroLeds <NUM_LEDS+5; numeroLeds ++) {
+    leds[numeroLeds%NUM_LEDS] = CRGB::Black;
+    FastLED.show();
+    delay(100);
+    if (numeroLeds>10){
+      leds[(numeroLeds-5)%NUM_LEDS] = CRGB::Green;
+    }
+  }
+  for(int numeroLeds = 0; numeroLeds <NUM_LEDS+2; numeroLeds ++) {
+    leds[numeroLeds%NUM_LEDS] = CRGB::Black;
+    FastLED.show();
+    delay(100);
+    if (numeroLeds>3){
+      leds[(numeroLeds-2)%NUM_LEDS] = CRGB::Yellow;
+    }
+  } 
+ 
+}
