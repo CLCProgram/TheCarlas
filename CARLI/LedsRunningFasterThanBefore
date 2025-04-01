@@ -1,0 +1,62 @@
+#include <FastLED.h>
+#define NUM_LEDS 179
+#define DATA_PIN 3
+CRGB leds[NUM_LEDS];
+int indiceLedRojo = 0;
+int dilai = 20;
+bool avance = true;
+
+void retroceder() {
+   Serial.println(indiceLedRojo);
+  leds[indiceLedRojo] = CRGB::Red;
+  leds[(indiceLedRojo+1)%NUM_LEDS] = CRGB::OrangeRed;
+  leds[(indiceLedRojo+2)%NUM_LEDS] = CRGB::Yellow;
+  leds[(indiceLedRojo+3)%NUM_LEDS] = CRGB::LimeGreen;
+  leds[(indiceLedRojo+4)%NUM_LEDS] = CRGB::SkyBlue;
+  leds[(indiceLedRojo+5)%NUM_LEDS] = CRGB::Navy;
+  leds[(indiceLedRojo+6)%NUM_LEDS] = CRGB::Purple;
+  FastLED.show();
+  delay(dilai);
+  indiceLedRojo-=1;
+  leds[(indiceLedRojo+7)%NUM_LEDS] = CRGB::Black;
+  if (indiceLedRojo == NUM_LEDS-6){
+    avance = true;
+    FastLED.clear();
+    
+  }
+}
+
+void avanzar () {
+   Serial.println(indiceLedRojo);
+  leds[indiceLedRojo] = CRGB::Red;
+  leds[(indiceLedRojo+1)%NUM_LEDS] = CRGB::OrangeRed;
+  leds[(indiceLedRojo+2)%NUM_LEDS] = CRGB::Yellow;
+  leds[(indiceLedRojo+3)%NUM_LEDS] = CRGB::LimeGreen;
+  leds[(indiceLedRojo+4)%NUM_LEDS] = CRGB::SkyBlue;
+  leds[(indiceLedRojo+5)%NUM_LEDS] = CRGB::Navy;
+  leds[(indiceLedRojo+6)%NUM_LEDS] = CRGB::Purple;
+  FastLED.show();
+  delay(dilai);
+  indiceLedRojo+=1;
+  leds[(indiceLedRojo-1)%NUM_LEDS] = CRGB::Black;
+  if (indiceLedRojo == NUM_LEDS-6){
+    avance=false;
+    FastLED.clear();
+    
+  }
+}
+
+
+void setup() { 
+  Serial.begin(9600);
+    FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);  
+    FastLED.setBrightness(21);
+}
+void loop() {
+  if(avance) {
+     avanzar();
+  }
+  else {
+    retroceder();
+  }
+ } 
