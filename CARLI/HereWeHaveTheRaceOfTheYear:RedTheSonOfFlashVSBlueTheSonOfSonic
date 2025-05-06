@@ -1,0 +1,76 @@
+void retroceder() {
+   Serial.println(indiceLedRojo);
+  leds[indiceLedRojo] = CRGB::Red;
+  FastLED.show();
+  delay(dilai);
+  indiceLedRojo-=1;
+  leds[(indiceLedRojo+1)%NUM_LEDS] = CRGB::Black;
+  if (indiceLedRojo == NUM_LEDS-1){
+    avance = true;
+    FastLED.clear();
+    
+  }
+}
+
+void retroceder2() {
+   Serial.println(indiceLedAzul);
+  leds[indiceLedAzul] = CRGB::Blue;
+  FastLED.show();
+  delay(dilai);
+  indiceLedAzul--;
+  leds[(indiceLedAzul+1)%NUM_LEDS] = CRGB::Black;
+  if (indiceLedAzul == 0       ){
+    avance2 = true;
+    FastLED.clear();
+    
+  }
+}
+
+void avanzar () {
+   Serial.println(indiceLedRojo);
+  leds[indiceLedRojo] = CRGB::Red;
+  FastLED.show();
+  delay(dilai);
+  indiceLedRojo+=1;
+  leds[(indiceLedRojo-1)%NUM_LEDS] = CRGB::Black;
+  if (indiceLedRojo == NUM_LEDS-1){
+    avance=false;
+    FastLED.clear();
+    
+  }
+}
+
+void avanzar2 () {
+   Serial.println(indiceLedAzul);
+  leds[indiceLedAzul] = CRGB::Blue;
+  FastLED.show();
+  delay(dilai);
+  indiceLedAzul+=1;
+  leds[(indiceLedAzul-1)%NUM_LEDS] = CRGB::Black;
+  if (indiceLedAzul == NUM_LEDS-1){
+    avance2=false;
+    FastLED.clear();
+    
+  }
+}
+
+
+void setup() { 
+  Serial.begin(9600);
+    FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);  
+    FastLED.setBrightness(21);
+}
+void loop() {
+  if(avance) {
+     avanzar();
+  }
+  else {
+    retroceder();
+  }
+    if(avance2) {
+     avanzar2();
+  }
+  else {
+    retroceder2();
+  }
+ } 
