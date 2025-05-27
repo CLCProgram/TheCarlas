@@ -1,0 +1,37 @@
+#include "DHT.h"
+
+int pinito = 2;
+
+// led
+#include <FastLED.h>
+#define NUM_LEDS 120
+#define DATA_PIN 8
+CRGB leds[NUM_LEDS];
+
+// DHT
+DHT dht(pinito,DHT11);
+
+void setup() {
+  
+FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
+dht.begin();
+
+
+
+}
+
+void loop() {
+  float t = dht.readTemperature();
+  int puntosP = map(t, 20.0, 30.0, 0, NUM_LEDS-1);
+  for(int a = 0; a < puntosP; a++){
+    Serial.println("pase por el for");
+    leds[a] = CRGB::Purple;
+    }
+  for(int a = puntosP; a < NUM_LEDS; a++){
+    Serial.println("pase por el for");
+    leds[a] = CRGB::Black;
+    }
+  FastLED.show(); 
+
+
+}
