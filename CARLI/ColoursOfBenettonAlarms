@@ -1,0 +1,39 @@
+
+#include <FastLED.h>
+
+#define NUM_LEDS 120
+#define DATA_PIN 3
+
+CRGB leds[NUM_LEDS];
+byte rojo = 0;
+byte verde = 255;
+byte azul = 128;
+void setup() {
+  
+    FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
+    Serial.begin(9600);
+}
+
+void loop() {
+
+  FastLED.show();
+  delay(500);
+  
+  leds[0] = CRGB::Black;
+  FastLED.show();
+  delay(500);
+  for(int i=0; i< NUM_LEDS; i++) {
+    leds[i].red = rojo;
+    leds[i].green = verde;
+    leds[i].blue = azul;
+    rojo +=5;
+  verde -=10;
+  azul += random(-1,1);
+  }
+  rojo +=5;
+  verde -=10;
+  azul += random(-1,1);
+  Serial.print(rojo);
+  Serial.print(verde);
+  Serial.println(azul);
+}
