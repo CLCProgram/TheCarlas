@@ -1,0 +1,20 @@
+#include <FastLED.h>
+#define NUM_LEDS 179
+#define DATA_PIN 3
+CRGB leds[NUM_LEDS];
+int indiceLedRojo = 0;
+void setup() { 
+    FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);  
+    FastLED.setBrightness(21);
+}
+void loop() {
+  leds[indiceLedRojo] = CRGB::(3, 225, 225);
+  leds[indiceLedRojo+1] = CRGB::(0, 176, 224);
+  leds[indiceLedRojo+2] = CRGB::(40, 140, 198);
+  leds[indiceLedRojo+3] = CRGB::(57, 58, 225);
+  leds[indiceLedRojo+4] = CRGB::(98, 109, 187);
+  leds[indiceLedRojo+5] = CRGB::(63, 65, 130);
+  FastLED.show();
+  delay(500);
+  indiceLedRojo+=6;
+}
