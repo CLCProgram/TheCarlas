@@ -1,0 +1,39 @@
+
+
+#include <LCD-I2C.h>
+#include <Wire.h>
+int boton = 4;
+// Default address of most PCF8574 modules, change address accordingly
+LCD_I2C lcd(0x27, 20, 4);
+
+uint8_t cuadrado[8] =
+{
+    0b11111,
+    0b11111,
+    0b11111,
+    0b11111,
+    0b11111,
+    0b11111,
+    0b11111,
+    0b11111,
+};
+
+
+void setup() {
+ pinMode (4, INPUT);
+  Wire.begin();
+  lcd.begin(&Wire);
+  lcd.display();
+  lcd.backlight();
+  lcd.createChar(0, cuadrado);
+  lcd.setCursor(0,2);
+  lcd.write(0);
+
+ } 
+
+void loop() {
+    if (digital.read)
+    digital.Write(4, HIGH);
+    lcd.setCursor(0,1);
+}
+
