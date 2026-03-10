@@ -45,12 +45,18 @@ void loop() {
     delay(1000);
     lcd.setCursor(19,1);
     lcd.write(1);
+    delay(1000);
     lcd.setCursor(18,1);
     lcd.write(0);
     delay(1000);
+    lcd.setCursor(18,1);
     lcd.write(1);
+    delay(1000);
     lcd.setCursor(17,1);
     lcd.write(0);
+    delay(1000);
+    lcd.setCursor(17,1);
+    lcd.write(1);
     delay(1000);
     
     
